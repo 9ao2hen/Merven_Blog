@@ -55,6 +55,14 @@ module.exports = {
           { title: "Volatile关键字", path: "/javaAdvance/thread-key-volatile" },
         ],
       },
+      {
+        title: "工具",
+        path: "/tool/git-add-socket",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "git使用 socket 代理", path: "/tool/git-add-socket" },
+        ],
+      },
     ],
   },
 };
