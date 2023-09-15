@@ -2,6 +2,7 @@ module.exports = {
   base:"/Merven_Blog/",
   title: "墨文博客",
   description: "欢迎来到墨文的博客",
+  dest:"dest",
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
   themeConfig: {
     // 导航
