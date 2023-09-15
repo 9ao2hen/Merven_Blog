@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /develop.jpeg
+heroImage: /develep.jpeg
 actionText: 快速上手 →
 actionLink: /javaBase/JavaBase
 features:
