@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>git 命令 使用socks代理 | 墨文博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/Merven_Blog/favicon.ico">
+    <meta name="description" content="欢迎来到墨文的博客">
+    
+    <link rel="preload" href="/Merven_Blog/assets/css/0.styles.a301047a.css" as="style"><link rel="preload" href="/Merven_Blog/assets/js/app.152a2e53.js" as="script"><link rel="preload" href="/Merven_Blog/assets/js/2.a712d209.js" as="script"><link rel="preload" href="/Merven_Blog/assets/js/1.bcdbbaef.js" as="script"><link rel="preload" href="/Merven_Blog/assets/js/32.3883797a.js" as="script"><link rel="prefetch" href="/Merven_Blog/assets/js/10.3624c371.js"><link rel="prefetch" href="/Merven_Blog/assets/js/11.009a4088.js"><link rel="prefetch" href="/Merven_Blog/assets/js/12.50f662a6.js"><link rel="prefetch" href="/Merven_Blog/assets/js/13.9ac1507e.js"><link rel="prefetch" href="/Merven_Blog/assets/js/14.6fbdd8d3.js"><link rel="prefetch" href="/Merven_Blog/assets/js/15.fd694769.js"><link rel="prefetch" href="/Merven_Blog/assets/js/16.d211645d.js"><link rel="prefetch" href="/Merven_Blog/assets/js/17.485728d4.js"><link rel="prefetch" href="/Merven_Blog/assets/js/18.f646c752.js"><link rel="prefetch" href="/Merven_Blog/assets/js/19.d679d806.js"><link rel="prefetch" href="/Merven_Blog/assets/js/20.4b4a7f9d.js"><link rel="prefetch" href="/Merven_Blog/assets/js/21.8ee70ab5.js"><link rel="prefetch" href="/Merven_Blog/assets/js/22.94294803.js"><link rel="prefetch" href="/Merven_Blog/assets/js/23.3986c28c.js"><link rel="prefetch" href="/Merven_Blog/assets/js/24.c2cc382b.js"><link rel="prefetch" href="/Merven_Blog/assets/js/25.367530aa.js"><link rel="prefetch" href="/Merven_Blog/assets/js/26.cff13695.js"><link rel="prefetch" href="/Merven_Blog/assets/js/27.d0b7d531.js"><link rel="prefetch" href="/Merven_Blog/assets/js/28.5423fdf7.js"><link rel="prefetch" href="/Merven_Blog/assets/js/29.b666096a.js"><link rel="prefetch" href="/Merven_Blog/assets/js/3.ce2fe7f0.js"><link rel="prefetch" href="/Merven_Blog/assets/js/30.f528e441.js"><link rel="prefetch" href="/Merven_Blog/assets/js/31.c880da57.js"><link rel="prefetch" href="/Merven_Blog/assets/js/4.ace105ca.js"><link rel="prefetch" href="/Merven_Blog/assets/js/5.e8df22f9.js"><link rel="prefetch" href="/Merven_Blog/assets/js/6.84614bbb.js"><link rel="prefetch" href="/Merven_Blog/assets/js/7.58f38b18.js"><link rel="prefetch" href="/Merven_Blog/assets/js/vendors~docsearch.6dc52818.js">
+    <link rel="stylesheet" href="/Merven_Blog/assets/css/0.styles.a301047a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Merven_Blog/" class="home-link router-link-active"><!----> <span class="site-name">墨文博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Merven_Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Merven_Blog/JVM/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/Merven_Blog/development/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/Merven_Blog/notes/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Merven_Blog/language/chinese.html" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/Merven_Blog/language/English.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Merven_Blog/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/Merven_Blog/JVM/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/Merven_Blog/development/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/Merven_Blog/notes/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Merven_Blog/language/chinese.html" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/Merven_Blog/language/English.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/Merven_Blog/blog/hello-vuepress" class="sidebar-heading clickable"><span>vue-press教程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Merven_Blog/blog/hello-vuepress.html" class="sidebar-link">Hello VuePress</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Merven_Blog/javaBase/JavaBase" class="sidebar-heading clickable"><span>基础学习</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Merven_Blog/javaBase/JavaBase.html" class="sidebar-link">Java基础</a></li><li><a href="/Merven_Blog/javaBase/Annotation.html" class="sidebar-link">注解详解</a></li><li><a href="/Merven_Blog/javaBase/Paradigm.html" class="sidebar-link">范型详解</a></li><li><a href="/Merven_Blog/javaBase/HashMap.html" class="sidebar-link">Map源码分析</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Merven_Blog/oop/solid" class="sidebar-heading clickable"><span>面向对象</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Merven_Blog/oop/solid.html" class="sidebar-link">solid原则</a></li><li><a href="/Merven_Blog/oop/uml.html" class="sidebar-link">uml</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Merven_Blog/javaAdvance/thread-theory" class="sidebar-heading clickable"><span>进阶</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Merven_Blog/javaAdvance/thread-theory.html" class="sidebar-link">理论基础</a></li><li><a href="/Merven_Blog/javaAdvance/thread-key-volatile.html" class="sidebar-link">Volatile关键字</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Merven_Blog/tool/git-add-socket" class="sidebar-heading clickable open active"><span>工具</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Merven_Blog/tool/git-add-socket.html" aria-current="page" class="active sidebar-link">git使用 socket 代理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Merven_Blog/tool/git-add-socket.html#设置-socks-代理" class="sidebar-link">设置 SOCKS 代理：</a></li><li class="sidebar-sub-header"><a href="/Merven_Blog/tool/git-add-socket.html#配置-git-全局代理设置" class="sidebar-link">配置 Git 全局代理设置：</a></li><li class="sidebar-sub-header"><a href="/Merven_Blog/tool/git-add-socket.html#如果代理需要认证" class="sidebar-link">如果代理需要认证:</a></li><li class="sidebar-sub-header"><a href="/Merven_Blog/tool/git-add-socket.html#取消代理" class="sidebar-link">取消代理</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="git-命令-使用socks代理"><a href="#git-命令-使用socks代理" class="header-anchor">#</a> git 命令 使用socks代理</h1> <p>如果您想在使用 Git 命令时通过 SOCKS 代理连接到远程仓库，您可以通过配置 Git 的全局代理设置来实现。以下是在命令行中使用 SOCKS 代理的步骤：</p> <h2 id="设置-socks-代理"><a href="#设置-socks-代理" class="header-anchor">#</a> 设置 SOCKS 代理：</h2> <p>首先，确保您已经有一个可用的 SOCKS 代理服务器的主机名（或 IP 地址）和端口号。假设代理服务器的主机名是 <code>proxy.example.com</code>，端口是 <code>1080</code>。</p> <blockquote><p>比如我自己的代理主机地址是:127.0.0.1:1080</p></blockquote> <h2 id="配置-git-全局代理设置"><a href="#配置-git-全局代理设置" class="header-anchor">#</a> 配置 Git 全局代理设置：</h2> <p>命令行输入:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config <span class="token parameter variable">--global</span> http.proxy socks5://127.0.0.1:1080
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> https.proxy socks5://127.0.0.1:1080
+
+<span class="token comment">#如果不想全局代理可以使用一下命令:</span>
+<span class="token function">git</span> config <span class="token parameter variable">--local</span> http.proxy socks5://127.0.0.1:1080
+<span class="token function">git</span> config <span class="token parameter variable">--local</span> https.proxy socks5://127.0.0.1:1080
+</code></pre></div><h2 id="如果代理需要认证"><a href="#如果代理需要认证" class="header-anchor">#</a> 如果代理需要认证:</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config <span class="token parameter variable">--local</span> http.proxy socks5://username:password@127.0.0.1:1080
+<span class="token function">git</span> config <span class="token parameter variable">--local</span> https.proxy socks5://username:password@127.0.0.1:1080
+</code></pre></div><h2 id="取消代理"><a href="#取消代理" class="header-anchor">#</a> 取消代理</h2> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config <span class="token parameter variable">--local</span> <span class="token parameter variable">--unset</span> http.proxy
+<span class="token function">git</span> config <span class="token parameter variable">--local</span> <span class="token parameter variable">--unset</span> https.proxy
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Merven_Blog/javaAdvance/thread-key-volatile.html" class="prev">
+        Volatile关键字
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Merven_Blog/assets/js/app.152a2e53.js" defer></script><script src="/Merven_Blog/assets/js/2.a712d209.js" defer></script><script src="/Merven_Blog/assets/js/1.bcdbbaef.js" defer></script><script src="/Merven_Blog/assets/js/32.3883797a.js" defer></script>
+  </body>
+</html>
