@@ -9,7 +9,9 @@ yarn build
 # 进入生成的文件夹
 cd docs/.vuepress/dist
 
-#git init
+git init
+git config --local http.proxy socks5://127.0.0.1:1080
+git config --local https.proxy socks5://127.0.0.1:1080
 git add -A
 git commit -m 'deploy'
 
