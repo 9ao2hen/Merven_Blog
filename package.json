@@ -5,10 +5,15 @@
   "author": "mervyn",
   "license": "MIT",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.10",
     "vuepress": "^1.9.10"
   },
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "vuepress-plugin-anchor-right": "^0.0.1-beta.18",
+    "vuepress-theme-reco": "^1.6.17"
   }
 }
