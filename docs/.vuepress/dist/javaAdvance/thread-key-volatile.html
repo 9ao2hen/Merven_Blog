@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>volatile详解 | 墨文博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="欢迎来到墨文的博客">
+    
+    <link rel="preload" href="/assets/css/0.styles.8f3dca9f.css" as="style"><link rel="preload" href="/assets/js/app.0b743411.js" as="script"><link rel="preload" href="/assets/js/2.a712d209.js" as="script"><link rel="preload" href="/assets/js/1.bcdbbaef.js" as="script"><link rel="preload" href="/assets/js/29.2dd575aa.js" as="script"><link rel="prefetch" href="/assets/js/10.3624c371.js"><link rel="prefetch" href="/assets/js/11.009a4088.js"><link rel="prefetch" href="/assets/js/12.50f662a6.js"><link rel="prefetch" href="/assets/js/13.7eaaa4cc.js"><link rel="prefetch" href="/assets/js/14.6fbdd8d3.js"><link rel="prefetch" href="/assets/js/15.fd694769.js"><link rel="prefetch" href="/assets/js/16.d211645d.js"><link rel="prefetch" href="/assets/js/17.485728d4.js"><link rel="prefetch" href="/assets/js/18.f646c752.js"><link rel="prefetch" href="/assets/js/19.99eaec60.js"><link rel="prefetch" href="/assets/js/20.4b4a7f9d.js"><link rel="prefetch" href="/assets/js/21.8ee70ab5.js"><link rel="prefetch" href="/assets/js/22.94294803.js"><link rel="prefetch" href="/assets/js/23.8139fac7.js"><link rel="prefetch" href="/assets/js/24.c2cc382b.js"><link rel="prefetch" href="/assets/js/25.e48c1a90.js"><link rel="prefetch" href="/assets/js/26.f1c0b909.js"><link rel="prefetch" href="/assets/js/27.9f62f128.js"><link rel="prefetch" href="/assets/js/28.170cc015.js"><link rel="prefetch" href="/assets/js/3.ce2fe7f0.js"><link rel="prefetch" href="/assets/js/30.f528e441.js"><link rel="prefetch" href="/assets/js/31.c0e5e8f7.js"><link rel="prefetch" href="/assets/js/4.ace105ca.js"><link rel="prefetch" href="/assets/js/5.e8df22f9.js"><link rel="prefetch" href="/assets/js/6.84614bbb.js"><link rel="prefetch" href="/assets/js/7.58f38b18.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.6dc52818.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8f3dca9f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">墨文博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/JVM/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/development/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/notes/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese.html" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/English.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/JVM/" class="nav-link">
+  JVM
+</a></div><div class="nav-item"><a href="/development/" class="nav-link">
+  设计模式
+</a></div><div class="nav-item"><a href="/notes/" class="nav-link">
+  工具
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Languages" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Languages" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/language/chinese.html" class="nav-link">
+  中文
+</a></li><li class="dropdown-item"><!----> <a href="/language/English.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/blog/hello-vuepress" class="sidebar-heading clickable"><span>vue-press教程</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/hello-vuepress.html" class="sidebar-link">Hello VuePress</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/javaBase/JavaBase" class="sidebar-heading clickable"><span>基础学习</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/javaBase/JavaBase.html" class="sidebar-link">Java基础</a></li><li><a href="/javaBase/Annotation.html" class="sidebar-link">注解详解</a></li><li><a href="/javaBase/Paradigm.html" class="sidebar-link">范型详解</a></li><li><a href="/javaBase/HashMap.html" class="sidebar-link">Map源码分析</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/oop/solid" class="sidebar-heading clickable"><span>面向对象</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/oop/solid.html" class="sidebar-link">solid原则</a></li><li><a href="/oop/uml.html" class="sidebar-link">uml</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/javaAdvance/thread-theory" class="sidebar-heading clickable open"><span>进阶</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/javaAdvance/thread-theory.html" class="sidebar-link">理论基础</a></li><li><a href="/javaAdvance/thread-key-volatile.html" aria-current="page" class="active sidebar-link">Volatile关键字</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/javaAdvance/thread-key-volatile.html#volatile的作用" class="sidebar-link">volatile的作用</a></li><li class="sidebar-sub-header"><a href="/javaAdvance/thread-key-volatile.html#volatile-的实现原理" class="sidebar-link">volatile 的实现原理</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="volatile详解"><a href="#volatile详解" class="header-anchor">#</a> volatile详解</h1> <hr> <h2 id="volatile的作用"><a href="#volatile的作用" class="header-anchor">#</a> volatile的作用</h2> <blockquote><ul><li>防止重排</li> <li>实现可见性</li> <li>保证原子性:单次读写</li></ul></blockquote> <h3 id="防重排序"><a href="#防重排序" class="header-anchor">#</a> 防重排序</h3> <p>我们从一个最经典的例子来分析重排序问题。大家应该都很熟悉单例模式的实现，而在并发环境下的单例实现方式，我们通常可以采用双重检查加锁(DCL)的方式来实现。其源码如下：</p> <div class="language-java extra-class"><pre class="language-java"><code>ublic <span class="token keyword">class</span> <span class="token class-name">Singleton</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Singleton</span> singleton<span class="token punctuation">;</span>
+    <span class="token comment">/**
+     * 构造函数私有，禁止外部实例化
+     */</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>singleton <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span>singleton<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>singleton <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    singleton <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> singleton<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>现在我们分析一下为什么要在变量singleton之间加上volatile关键字。要理解这个问题，先要了解对象的构造过程，实例化一个对象其实可以分为三个步骤：</p> <ul><li>分配内存空间。</li> <li>初始化对象。</li> <li>将内存空间的地址赋值给对应的引用。</li></ul> <p>但是由于操作系统可以<code>对指令进行重排序</code>，所以上面的过程也可能会变成如下过程：</p> <ul><li>分配内存空间。</li> <li>将内存空间的地址赋值给对应的引用。</li> <li>初始化对象</li></ul> <p>如果是这个流程，多线程环境下就可能将一个未初始化的对象引用暴露出来，从而导致不可预料的结果。因此，为了防止这个过程的重排序，我们需要将变量设置为volatile类型的变量。</p> <h3 id="实现可见性"><a href="#实现可见性" class="header-anchor">#</a> 实现可见性</h3> <p>可见性问题主要指一个线程修改了共享变量值，而另一个线程却看不到。引起可见性问题的主要原因是每个线程拥有自己的一个高速缓存区——线程工作内存。volatile关键字能有效的解决这个问题，我们看下下面的例子，就可以知道其作用：</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestVolatile</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> stop <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Thread-A</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token string">&quot;Thread A&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>stop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; stopped&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Thread-main</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">SECONDS</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&quot; after 1 seconds&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        stop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">&gt;&gt;</span> <span class="token class-name">Thread</span><span class="token punctuation">[</span>main<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span>main<span class="token punctuation">]</span> after <span class="token number">1</span> seconds
+<span class="token comment">// Thread A一直在loop, 因为Thread A 由于可见性原因看不到Thread Main 已经修改stop的值</span>
+</code></pre></div><p>可以看到 Thread-main 休眠1秒之后，设置 stop = ture，但是Thread A根本没停下来，这就是可见性问题。如果通过在stop变量前面加上volatile关键字则会真正stop:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token class-name">Thread</span><span class="token punctuation">[</span>main<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span>main<span class="token punctuation">]</span> after <span class="token number">1</span> seconds
+<span class="token class-name">Thread</span><span class="token punctuation">[</span><span class="token class-name">Thread</span> <span class="token class-name">A</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span>main<span class="token punctuation">]</span> stopped
+
+<span class="token class-name">Process</span> finished <span class="token keyword">with</span> <span class="token namespace">exit</span> code <span class="token number">0</span>
+
+</code></pre></div><h3 id="保证原子性-单次读-写"><a href="#保证原子性-单次读-写" class="header-anchor">#</a> 保证原子性:单次读/写</h3> <p>volatile不能保证完全的原子性，只能保证单次的读/写操作具有原子性。</p> <p>*** i++为什么不能保证原子性?***</p> <p>对于原子性，需要强调一点，也是大家容易误解的一点：对volatile变量的单次读/写操作可以保证原子性的，如long和double类型变量，但是并不能保证i++这种操作的原子性，因为本质上i++是读、写两次操作。</p> <h2 id="volatile-的实现原理"><a href="#volatile-的实现原理" class="header-anchor">#</a> volatile 的实现原理</h2> <p>//TODO</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javaAdvance/thread-theory.html" class="prev">
+        理论基础
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0b743411.js" defer></script><script src="/assets/js/2.a712d209.js" defer></script><script src="/assets/js/1.bcdbbaef.js" defer></script><script src="/assets/js/29.2dd575aa.js" defer></script>
+  </body>
+</html>
