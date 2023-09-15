@@ -1,5 +1,5 @@
 module.exports = {
-  base:"/Merven_Blog/dest",
+  base:"/Merven_Blog/dest/",
   title: "墨文博客",
   description: "欢迎来到墨文的博客",
   dest:"dest",
