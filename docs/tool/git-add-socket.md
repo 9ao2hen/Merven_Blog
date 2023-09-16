@@ -37,5 +37,8 @@ git config --local https.proxy socks5://username:password@127.0.0.1:1080
 ```shell
 git config --local --unset http.proxy
 git config --local --unset https.proxy
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
 

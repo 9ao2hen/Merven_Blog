@@ -1,9 +1,10 @@
 module.exports = {
-  base:"/Merven_Blog/",
+  base: "/Merven_Blog/",
   title: "墨文博客",
   description: "欢迎来到墨文的博客",
-  dest:"dest",
+  // dest:"dest",
   head: [["link", { rel: "icon", href: `/favicon.ico` }]],
+  // theme: 'reco',
   themeConfig: {
     // 导航
     nav: [
@@ -26,7 +27,10 @@ module.exports = {
         title: "vue-press教程",
         path: "/blog/hello-vuepress",
         collapsable: false, // 不折叠
-        children: [{ title: "Hello VuePress", path: "/blog/hello-vuepress" }],
+        children: [
+          { title: "Hello VuePress", path: "/blog/hello-vuepress" },
+          { title: "vuepress市场", path: "/blog/vuepress-market" },
+        ],
       },
       {
         title: "基础学习",
@@ -67,4 +71,11 @@ module.exports = {
       },
     ],
   },
+  markdown: {
+    lineNumbers: true,
+    toc: {
+      includeLevel: [1, 2, 3, 4],
+    },
+  },
+  plugins: ["@vuepress/back-to-top"],
 };
