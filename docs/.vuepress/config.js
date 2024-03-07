@@ -26,7 +26,7 @@ module.exports = {
       {
         title: "vue-press教程",
         path: "/blog/hello-vuepress",
-        collapsable: false, // 不折叠
+        collapsable: true, // 不折叠
         children: [
           { title: "Hello VuePress", path: "/blog/hello-vuepress" },
           { title: "vuepress市场", path: "/blog/vuepress-market" },
@@ -46,7 +46,7 @@ module.exports = {
       {
         title: "面向对象",
         path: "/oop/solid",
-        collapsable: false, // 不折叠
+        collapsable: true, // 不折叠
         children: [
           { title: "solid原则", path: "/oop/solid" },
           { title: "uml", path: "/oop/uml" },
@@ -55,7 +55,7 @@ module.exports = {
       {
         title: "进阶",
         path: "/javaAdvance/thread-theory",
-        collapsable: false, // 不折叠
+        collapsable: true, // 不折叠
         children: [
           { title: "理论基础", path: "/javaAdvance/thread-theory" },
           { title: "Volatile关键字", path: "/javaAdvance/thread-key-volatile" },
@@ -64,9 +64,17 @@ module.exports = {
       {
         title: "工具",
         path: "/tool/git-add-socket",
-        collapsable: false, // 不折叠
+        collapsable: true, // 不折叠
         children: [
           { title: "git使用 socket 代理", path: "/tool/git-add-socket" },
+        ],
+      },
+      {
+        title: "SpringBoot",
+        path: "/springboot/spring-boot-log",
+        collapsable: true, // 不折叠
+        children: [
+          { title: "统一日志框架", path: "/springboot/spring-boot-log" },
         ],
       },
     ],
