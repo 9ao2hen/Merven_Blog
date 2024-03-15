@@ -75,6 +75,7 @@ module.exports = {
         collapsable: true, // 不折叠
         children: [
           { title: "统一日志框架", path: "/springboot/spring-boot-log" },
+          { title: "spring-security", path: "/springboot/spring-security" },
         ],
       },
     ],
