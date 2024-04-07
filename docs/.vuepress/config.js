@@ -55,7 +55,7 @@ module.exports = {
       {
         title: "进阶",
         path: "/javaAdvance/thread-theory",
-        collapsable: true, // 不折叠
+        collapsable: false, // 不折叠
         children: [
           { title: "理论基础", path: "/javaAdvance/thread-theory" },
           { title: "Volatile关键字", path: "/javaAdvance/thread-key-volatile" },
@@ -64,7 +64,7 @@ module.exports = {
       {
         title: "工具",
         path: "/tool/git-add-socket",
-        collapsable: true, // 不折叠
+        collapsable: false, // 不折叠
         children: [
           { title: "git使用 socket 代理", path: "/tool/git-add-socket" },
         ],
@@ -72,7 +72,7 @@ module.exports = {
       {
         title: "SpringBoot",
         path: "/springboot/spring-boot-log",
-        collapsable: true, // 不折叠
+        collapsable: false, // 不折叠
         children: [
           { title: "统一日志框架", path: "/springboot/spring-boot-log" },
           { title: "spring-security", path: "/springboot/spring-security" },
